@@ -25,7 +25,8 @@ pipeline {
 
         stage('Run Test') {
             steps {
-                sh 'pytest --junitxml=reports/results.xml'
+                sh 'mkdir -p reports'
+                sh 'PYTHONPATH=. pytest --junitxml=reports/results.xml'
             }
         }
 
@@ -60,3 +61,4 @@ pipeline {
         }
     }
 }
+
